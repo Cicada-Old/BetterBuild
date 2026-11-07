@@ -42,7 +42,7 @@
 
 | 项 | 路径 |
 |---|---|
-| 源码 | `Source/`（13 个 `.cs`，含由开发副本 `src/shared/` 并入的 `ResearchStyleTabWindow.cs`） |
+| 源码 | `Source/`（**11 个 `.cs`**：开发副本 `src/buildmonitor/Source` 的 10 个 + 由 `src/shared/` 并入的 `ResearchStyleTabWindow.cs`）；**全仓库入库文件 24 个**（根 6 + `About/` 2 + `Assemblies/` 1 + `Defs/` 1 + `Languages/` 3 + `Source/` 11） |
 | 工程文件 | `BuildMonitor.csproj` |
 | 构建产物 | `bin/BuildMonitor.dll`（产物 md5 见下） |
 | 随包 DLL | `Assemblies/BuildMonitor.dll` |
@@ -60,6 +60,10 @@
 
 **验证范围必须一并读**：全套测试跑在被测件 `68ae0f54…` 上；换成 `80b59565…` 后只做了冒烟级验证（启动无错、ID 与中英文名、Harmony 生效、两页可用、3 组 24 单读数正常）。
 
+> 归档阶段的那次「副本作为 mod 加载」是**一次性人工检查，无独立日志留存**（当时原部署件临时移出 `Mods`、副本挂载、启动验证后还原）。旁证：部署件已还原且 md5 相符、副本 `About.xml` 与部署件同 md5、副本重建产物与归档件一致。
+
+> 本报告与 `版本冻结报告-BB-20261105.md` 属**内部资料，不随仓库分发**（含 Agent 名、内部路径与 KI 内部研判）；面向公众的测试与已知问题说明在阶段四的 `TESTING.md` / `KNOWN_ISSUES.md`。
+
 ## 9. 已知问题与限制
 
 | 编号 | 内容 | 处置 |
@@ -72,14 +76,14 @@
 
 | 项 | 值 |
 |---|---|
-| 首次提交 | `a50e391`（归档主体：代码、产物、文档；该提交内本文档的 hash 字段仍是占位符） |
-| 本文档定稿提交 | `93c1b0c`（仅回填 hash 与附 D 重建排查记录，不含代码/产物变更） |
+| 归档主体 / 首次提交 | `a50e391`（代码、产物、文档；该提交内本文档的 hash 字段仍是占位符） |
+| 说明性修订 | `007cb36` → `93c1b0c` → `012459b`（HEAD）：只改本文档的 hash 回填、附 D 与措辞，不含代码/产物变更 |
 | 分支 | `main` |
 | 标签 | **未打**（`v1.0.0` 留阶段八，指向通过验收的冻结提交） |
 
 ---
 
-## 附 A. 三个 md5（互不替代）
+## 附 A. 三组四文件 md5（互不替代）
 
 | 对象 | md5 |
 |---|---|
@@ -89,6 +93,10 @@
 | `About/About.xml` | `df6468fdf4043d1b9d329904eeb20517` |
 
 > 另有 `Languages/English/DefInjected/MainButtonDef/BuildMonitor.xml`（英文主按钮标题注入）与 `Defs/MainButtonDef.xml`，随副本原样归档。
+>
+> **该 DLL md5 仅对「用开发期 `refs/ref/net10.0` 参考壳 + 现行编译顺序」这一种方式成立**；用游戏安装目录的程序集能编出功能等价的 DLL，但字节不同（见附 D）。
+>
+> 磁盘上可存在 `libs/`、`bin/`、`obj/`（构建引用与产物），均已由 `.gitignore` 排除，**合规与否以 `git ls-files` 为准，不以磁盘目录有无判定**。
 
 ## 附 B. 产物变更史
 
@@ -123,3 +131,14 @@
 **处置**：为让归档判据「md5 可复现」成立，`BuildMonitor.csproj` 把 `ResearchStyleTabWindow.cs` 从 `Source\**\*.cs` 中排除、单独 `Compile` 一行放在末尾，并加注释说明原因。**源码一行未改**，改的是构建配置。
 
 **`libs/` 该放哪一份**：用开发期 `refs/ref/net10.0` 的四份（含 `harmony/x/lib/net10.0/0Harmony.dll`）才能产出 `80b59565…`；用游戏原版程序集同样能编译、能运行，只是字节不同。`DEVELOPMENT.md` 给普通开发者写的是「从游戏目录取」，那是能编译的路径；要**字节级复现归档产物**则需 refs 那份（开发期工作区才有，不公开分发）。
+
+## 附 E. 报批记录（阶段三第 1 步）
+
+用户 2026-11-07 19:49 已批准建副本与建仓库；按规范 §1.1 最后一段须向用户报告的四项如下（原文）：
+
+1. **源目录**：`_mod_build\src\buildmonitor\`（+ 共享文件 `_mod_build\src\shared\ResearchStyleTabWindow.cs`）
+2. **目标目录**：`发布项目\更好的建造\`
+3. **版本**：`80b5956514db783df6ddfd451b1fb366` / `1.0.0`
+4. **拟执行操作**：新建目录、复制（不移动）、在副本内改 csproj、`git init`、首次提交
+
+**硬线**：不删除、不覆盖、不移动开发副本任何文件；开发副本继续作为工作区。

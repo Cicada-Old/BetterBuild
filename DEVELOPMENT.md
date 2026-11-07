@@ -4,42 +4,47 @@
 
 ## 1. 引用程序集（`libs/`，不入库）
 
-构建需要四个 DLL，放在仓库根目录的 `libs/` 下（该目录已在 `.gitignore` 中排除）：
+构建需要四个 DLL，放在仓库根目录的 `libs/` 下（该目录已被 `.gitignore` 排除）。**分两档，按你的目的选**：
 
-| 文件 | 本机实测来源路径 |
+### A. 普通开发者：用游戏自带的程序集
+
+| 文件 | 从哪取 |
 |---|---|
-| `Assembly-CSharp.dll` | `D:\Game\RimWorld\Assembly-CSharp.dll`（游戏安装根目录） |
-| `RimWorld.dll` | `D:\Game\RimWorld\RimWorld.dll`（同上） |
-| `UnityStubs.dll` | `D:\Game\RimWorld\UnityStubs.dll`（同上） |
-| `0Harmony.dll` | `D:\Game\RimWorld\Mods\Harmony\1.7\Assemblies\0Harmony.dll`（Harmony mod 的 1.7 分支） |
+| `Assembly-CSharp.dll` | `<游戏安装目录>\`（RimWorld 1.7 的托管程序集直接放在游戏根目录） |
+| `RimWorld.dll` | `<游戏安装目录>\`（同上） |
+| `UnityStubs.dll` | `<游戏安装目录>\`（同上） |
+| `0Harmony.dll` | `<Harmony mod 目录>\1.7\Assemblies\0Harmony.dll` |
 
-> 路径是本机 RimWorld 1.7（Waylith 引擎）实测值。你的安装位置不同就按同样的「游戏根目录 / Harmony mod」两处找同名文件。
+这样能编译、能运行，产物**功能等价**；但**字节与归档件 `80b5956514db783df6ddfd451b1fb366` 不同**（引用程序集的元数据不同会改变生成结果）。日常开发、调试用这一档即可。
+
+### B. 要字节级复现归档件：用参考壳程序集
+
+必须用开发期工作区的 `refs\ref\net10.0\` 下那四份经过裁剪的参考壳（`Assembly-CSharp.dll` / `RimWorld.dll` / `UnityStubs.dll`）与 `harmony\x\lib\net10.0\0Harmony.dll`，**并保持现行 `BuildMonitor.csproj` 的编译顺序**（`ResearchStyleTabWindow.cs` 被 `Source\**\*.cs` 排除、单独 `Compile` 在末尾）。
+
+参考壳不随仓库分发；只有做「产物与归档件逐字节一致」的核对时才需要它。换行的差异不是原因——换引用的程序集才是。
 
 ## 2. 构建
 
-```bat
+```
 dotnet build BuildMonitor.csproj -c Release
 ```
 
-- SDK：.NET 10（本机 `dotnet --version` = `10.0.301`）
+- SDK：.NET 10（本机实测 `dotnet --version` = `10.0.301`）
 - 产物：`bin\BuildMonitor.dll`
 - 发布时把产物复制为 mod 的 `Assemblies\BuildMonitor.dll`
 
-## 3. 验证产物
+## 3. 验证
 
-```bat
-certutil -hashfile bin\BuildMonitor.dll MD5
-```
-
-对照 `ARCHIVE.md` 里记录的 md5（`80b5956514db783df6ddfd451b1fb366`）。重建结果与之不一致时先查三件事：程序集版本是否被改、是否有文件被多编/漏编、是否重复编译同一个类——**不要为了凑 md5 去改代码**。
+- **A 档（日常）**：确认编译无警告无错误、进游戏能正常加载与打开建造页/诊断页即可，不必对照归档 md5。
+- **B 档（归档核对）**：`certutil -hashfile bin\BuildMonitor.dll MD5` 应等于 `80b5956514db783df6ddfd451b1fb366`。不一致时先查三件事：程序集版本是否被改、文件是否多编/漏编、是否重复编译；仍不一致再查**引用程序集是否 A 档**、**编译单元顺序是否被打乱**（详见 `ARCHIVE.md` 附 D）。**不要为了凑 md5 改代码。**
 
 ## 4. 目录说明
 
 | 目录 | 内容 |
 |---|---|
-| `Source/` | 全部 C# 源码（含 `ResearchStyleTabWindow.cs`，原开发副本里位于 `src/shared/`） |
+| `Source/` | 全部 C# 源码，11 个文件（含 `ResearchStyleTabWindow.cs`，原开发副本里位于 `src/shared/`） |
 | `About/` | `About.xml`、`Preview.png` |
 | `Defs/` | Def 定义 |
-| `Languages/` | 中英文 Keyed 文案 |
-| `Assemblies/` | 已构建并验证过的 DLL |
+| `Languages/` | 中英文 Keyed 文案 + 英文 DefInjected |
+| `Assemblies/` | 已构建并验证的 DLL |
 | `libs/` | 构建引用（不入库，需自行放置） |
