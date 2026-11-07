@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Defs/MainButtonDef.xml 的 <label>/<description> 是中文硬编码（Def 默认值），
+  所以切到英文时底部一级菜单按钮仍显示「建造」；这里只覆盖翻译，不改功能。
+  窗口标题走 Keyed/BM_WindowTitle，本来就已经是英文，不在此文件范围内。
+-->
+<LanguageData>
+  <BuildMonitor.label>Build</BuildMonitor.label>
+  <BuildMonitor.description>Build permissions, construction level ranges, unbuilt counts, material scheduling, roof removal before deconstruct.</BuildMonitor.description>
+</LanguageData>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BM_WindowTitle>更好的建造</BM_WindowTitle>
+  <BM_TabBuild>建造</BM_TabBuild>
+  <BM_LevelNone>建造 -</BM_LevelNone>
+  <BM_LevelText>建造 {0} 级</BM_LevelText>
+  <BM_LevelShort>{0} 级</BM_LevelShort>
+  <BM_Builders>建造小人</BM_Builders>
+  <BM_NoColonists>（当前地图没有殖民者）</BM_NoColonists>
+  <BM_AllowQuality>可建有品质</BM_AllowQuality>
+  <BM_AllowPlain>可建无品质</BM_AllowPlain>
+  <BM_StatsLine>合计 {0}    有品质 {1}    无品质 {2}</BM_StatsLine>
+  <BM_PrefixQuality>[有品质] </BM_PrefixQuality>
+  <BM_PrefixPlain>[无品质] </BM_PrefixPlain>
+  <BM_DragOrderTip>按住拖动调整建造顺序</BM_DragOrderTip>
+  <BM_LevelTooltip>只有建造等级在 {0}~{1} 级、且拥有对应建造权限的小人，才会自动建造「{2}」。\n右键强制建造不受限制。0~20 = 不限制。\n\n符合条件的小人：{3}</BM_LevelTooltip>
+  <BM_Jump>跳转</BM_Jump>
+  <BM_TooMany>过多</BM_TooMany>
+  <BM_TooManyTip>同名未建造数量 ≥ 5，先处理一部分再跳转。</BM_TooManyTip>
+  <BM_None>（无）</BM_None>
+  <BM_ListSeparator>、</BM_ListSeparator>
+  <BM_ProtectDays>材料保护期：{0} 游戏日</BM_ProtectDays>
+  <BM_ProtectHint>保护期内低名次不碰最高名次的料；保护到期后只开放一半给低名次借用，另一半永远留给最高名次。0 = 不保护。</BM_ProtectHint>
+  <BM_AgeDays>等待老化期：{0} 游戏日</BM_AgeDays>
+  <BM_AgeHint>订单连续这么久没进料，就把它的调度名次提到最高名次之后一位，让它越过后面所有队列；最高名次本身不受影响。0 = 关闭老化。</BM_AgeHint>
+  <BM_TabDiag>诊断</BM_TabDiag>
+  <BM_DiagHint>这张表回答「这张单为什么不动」。诊断只读：在这里看什么都不会改变调度判定。</BM_DiagHint>
+  <BM_DiagEmpty>当前没有待建订单。</BM_DiagEmpty>
+  <BM_DiagViewerLabel>执行者视角：</BM_DiagViewerLabel>
+  <BM_DiagViewerAll>全部（只看汇总）</BM_DiagViewerAll>
+  <BM_DiagViewerAllShort>全部</BM_DiagViewerAllShort>
+  <BM_DiagBestFor>{0} 现在最该做：{1}（名次 {2}）</BM_DiagBestFor>
+  <BM_DiagBestNone>{0} 当前没有可做的建造</BM_DiagBestNone>
+  <BM_DiagBestIncomplete>预演不完整（候选超过上限），本次不给结论</BM_DiagBestIncomplete>
+  <BM_DiagColGroup>类型组</BM_DiagColGroup>
+  <BM_DiagColRank>名次</BM_DiagColRank>
+  <BM_DiagColState>状态</BM_DiagColState>
+  <BM_DiagColReason>原因</BM_DiagColReason>
+  <BM_DiagColWait>已等</BM_DiagColWait>
+  <BM_Verdict_Unknown>待判</BM_Verdict_Unknown>
+  <BM_Verdict_Granted>放行</BM_Verdict_Granted>
+  <BM_Verdict_Waiting>等料</BM_Verdict_Waiting>
+  <BM_Verdict_Yielded>让路</BM_Verdict_Yielded>
+  <BM_Verdict_NoWorker>无人可做</BM_Verdict_NoWorker>
+  <BM_Verdict_Forbidden>禁建</BM_Verdict_Forbidden>
+  <BM_DiagReasonShort>{0} 差{1}（可用{2}）</BM_DiagReasonShort>
+  <BM_DiagPermanent>永缺</BM_DiagPermanent>
+  <BM_DiagTemporary>暂缺</BM_DiagTemporary>
+  <BM_DiagReasonYield>让给 {0}（名次 {1}）</BM_DiagReasonYield>
+  <BM_DiagReasonNoWorker>无合格建造者</BM_DiagReasonNoWorker>
+  <BM_DiagReasonForbidden>已禁用建造</BM_DiagReasonForbidden>
+  <BM_DiagIdleReason>可建造，当前无人被派</BM_DiagIdleReason>
+  <BM_DiagReasonPending>还没判定过</BM_DiagReasonPending>
+  <BM_DiagReasonTaken>已有人占着这张单</BM_DiagReasonTaken>
+  <BM_DiagReasonNoMaterial>未记录到具体材料</BM_DiagReasonNoMaterial>
+  <BM_DiagReasonNone>无附加说明</BM_DiagReasonNone>
+  <BM_CellNotCounted>未计</BM_CellNotCounted>
+  <BM_CellNoShortage>不缺</BM_CellNoShortage>
+  <BM_CellNotCountedTip>这组还没统计到</BM_CellNotCountedTip>
+  <BM_CellNoShortageTip>这组不缺材料</BM_CellNoShortageTip>
+  <BM_CellNoMaterialList>没有材料清单</BM_CellNoMaterialList>
+  <BM_WindowHint>建造权限、等级范围与未建造顺序都在这页：
+· 顶部表格列出未建造的类型组，拖动左侧 ≡ 调整建造顺序；
+· 点一行名字在右侧看详情、调该类型的建造等级；
+· 缺料、在途与放行状态在表里直接可见，判定详情见「诊断」页。
+
+右上角搜索框按名称筛选；「诊断」页回答「这张单为什么不动」。</BM_WindowHint>
+  <BM_ColGroup>类型组</BM_ColGroup>
+  <BM_ColLevel>等级范围</BM_ColLevel>
+  <BM_ColCount>数量</BM_ColCount>
+  <BM_LevelRangeText>{0}–{1}</BM_LevelRangeText>
+  <BM_LevelOpenHint1>拖动两端设定该类型允许的建造等级</BM_LevelOpenHint1>
+  <BM_LevelOpenHint2>点「收起」回到汇总。</BM_LevelOpenHint2>
+  <BM_SchedSettings>设置</BM_SchedSettings>
+  <BM_SchedTitle>调度设置</BM_SchedTitle>
+  <BM_SchedHint>这几项配好后平时不用再动，所以从主界面收进来了。</BM_SchedHint>
+  <BM_SchedNoGame>当前没有进行中的游戏。</BM_SchedNoGame>
+  <BM_PermQualityShort>品质</BM_PermQualityShort>
+  <BM_PermPlainShort>普通</BM_PermPlainShort>
+  <BM_DiagGroupSummary>共 {0} 个类型组 · {1} 张订单（同类已合并）</BM_DiagGroupSummary>
+  <BM_DiagColCount>单数</BM_DiagColCount>
+  <BM_ColMaterial>材料</BM_ColMaterial>
+  <BM_ColNeeded>还需</BM_ColNeeded>
+  <BM_ColLack>缺料</BM_ColLack>
+  <BM_ColEnroute>在途</BM_ColEnroute>
+  <BM_ColWorkers>允许执行</BM_ColWorkers>
+  <BM_WorkersTitle>允许执行的小人</BM_WorkersTitle>
+  <BM_WorkersUnlimited>不限</BM_WorkersUnlimited>
+  <BM_WorkersN>{0} 人</BM_WorkersN>
+  <BM_WorkersBtn>选择小人</BM_WorkersBtn>
+  <BM_WorkersBtnTip>限定只有名单内的小人能完工这一类型；普通蓝图名单外仍可送料。\n本条件与等级范围叠加：权限、等级、名单三者都满足才会执行。\n「重新安装」的家具是搬过去即装好，没有单独的完工出口，所以名单外的小人连搬都不搬。\n只管建造完工与重新安装；拆地板、拆地基、平滑墙面不受名单限制。</BM_WorkersBtnTip>
+  <BM_WorkersClear>清空名单</BM_WorkersClear>
+  <BM_WorkersClearTip>清空后恢复「不限」，即所有有权限、等级达标的小人都能完工。</BM_WorkersClearTip>
+  <BM_WorkersWho>允许执行：{0}</BM_WorkersWho>
+  <BM_WorkersOffList>（另有 {0} 名未启用建造）</BM_WorkersOffList>
+  <BM_WorkersListedCan>名单 {0} 人 · 可建造 {1} 人</BM_WorkersListedCan>
+  <BM_WorkersCanBuild>可建造</BM_WorkersCanBuild>
+  <BM_WorkersLevelOut>等级不在 {0}~{1}（只限建造，安装不受限）</BM_WorkersLevelOut>
+  <BM_WorkersNoPerm>没有该建筑的建造权限</BM_WorkersNoPerm>
+  <BM_WorkersSkillDisabled>建造技能被禁用</BM_WorkersSkillDisabled>
+  <BM_WorkersEmptyTip>未设名单，任何人可做。</BM_WorkersEmptyTip>
+  <BM_Close>收起</BM_Close>
+  <BM_PanePickHint>点左侧任意一行，这里显示详情。</BM_PanePickHint>
+  <BM_DiagColJudge>判定方</BM_DiagColJudge>
+  <BM_DiagFormula>可用量这样算出来：</BM_DiagFormula>
+  <BM_DiagKvNeed>需要的材料</BM_DiagKvNeed>
+  <BM_DiagKvStock>全图库存</BM_DiagKvStock>
+  <BM_DiagKvEnroute>在途占库存</BM_DiagKvEnroute>
+  <BM_DiagKvProtect>高名次预留</BM_DiagKvProtect>
+  <BM_DiagKvAlloc>本轮已分配</BM_DiagKvAlloc>
+  <BM_DiagKvAvail>可用（减完）</BM_DiagKvAvail>
+  <BM_DiagKvKind>短缺性质</BM_DiagKvKind>
+  <BM_DiagKvYieldTo>让给了</BM_DiagKvYieldTo>
+  <BM_Judge_Budget>材料预算</BM_Judge_Budget>
+  <BM_Judge_Gate>让路闸门</BM_Judge_Gate>
+  <BM_Judge_NoWorker>无人可做扫描</BM_Judge_NoWorker>
+  <BM_Judge_Player>玩家设置</BM_Judge_Player>
+  <RF_ActionMine>挖</RF_ActionMine>
+  <RF_ActionDeconstruct>拆</RF_ActionDeconstruct>
+  <RF_BlockedThick>已阻止{0}「{1}」：会带动上方厚岩顶塌方（{2} 格），厚岩顶无法拆除。右键强制{0}可无视。</RF_BlockedThick>
+  <RF_BlockedUnremovable>已阻止{0}「{1}」：上方屋顶会塌（{2} 格），且该屋顶无法拆除。右键强制{0}可无视。</RF_BlockedUnremovable>
+  <RF_BlockedUnreachable>已阻止{0}「{1}」：上方屋顶会塌，但小人够不到那些屋顶（{2} 格）。请先打通通道，或右键强制{0}。</RF_BlockedUnreachable>
+  <RF_PausedThick>已暂停{0}「{1}」：已标记 {2} 格屋顶可拆，但上方还有厚岩顶会塌且拆不掉。拆完普通屋顶后，如需继续请右键强制{0}。</RF_PausedThick>
+  <RF_PausedRoofFirst>已暂停{0}「{1}」：先拆上方 {2} 格屋顶（已自动标记「拆除屋顶」区域），拆完会自动继续。不想拆就取消该{0}指令。</RF_PausedRoofFirst>
+  <RF_WarningMessage>警告：{0} 拆掉后会有厚岩顶塌方（{1} 格），厚岩顶无法拆除</RF_WarningMessage>
+  <RF_AlertLabel>厚岩顶将要塌方</RF_AlertLabel>
+  <RF_AlertExplanation>以下位置拆除后，上方厚岩顶会失去支撑而塌方；厚岩顶无法用「拆除屋顶」处理。\n\n点击下面的目标可以跳转到具体位置。</RF_AlertExplanation>
+  <BM_RowHeight>建造页行高</BM_RowHeight>
+  <BM_RowHeightTip>行高 {0}~{1} 像素，默认 {2}；超出范围会自动限制到 {0}~{1}，填非数字或留空则沿用当前值。只影响建造页中区的类型组表格。</BM_RowHeightTip>
+
+  <BM_SortDefault>默认</BM_SortDefault>
+  <BM_SortAsc>等级↑</BM_SortAsc>
+  <BM_SortDesc>等级↓</BM_SortDesc>
+</LanguageData>

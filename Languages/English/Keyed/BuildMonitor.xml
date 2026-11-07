@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BM_WindowTitle>Better Build</BM_WindowTitle>
+  <BM_TabBuild>Construction</BM_TabBuild>
+  <BM_LevelNone>Construction -</BM_LevelNone>
+  <BM_LevelText>Construction {0}</BM_LevelText>
+  <BM_LevelShort>Lv {0}</BM_LevelShort>
+  <BM_Builders>Builders</BM_Builders>
+  <BM_NoColonists>(No colonists on this map)</BM_NoColonists>
+  <BM_AllowQuality>Quality</BM_AllowQuality>
+  <BM_AllowPlain>Plain</BM_AllowPlain>
+  <BM_StatsLine>Total {0}    Quality {1}    Plain {2}</BM_StatsLine>
+  <BM_PrefixQuality>[Quality] </BM_PrefixQuality>
+  <BM_PrefixPlain>[Plain] </BM_PrefixPlain>
+  <BM_DragOrderTip>Hold and drag to change build order</BM_DragOrderTip>
+  <BM_LevelTooltip>Only colonists whose construction level is within {0}~{1} and who have the matching build permission will automatically build {2}.\nRight-click forced construction is unrestricted. 0~20 = no limit.\n\nEligible colonists: {3}</BM_LevelTooltip>
+  <BM_Jump>Jump</BM_Jump>
+  <BM_TooMany>Too many</BM_TooMany>
+  <BM_TooManyTip>5 or more of the same building are unbuilt; handle some of them before jumping.</BM_TooManyTip>
+  <BM_None>(none)</BM_None>
+  <BM_ListSeparator>,</BM_ListSeparator>
+  <BM_ProtectDays>Material protection: {0} day(s)</BM_ProtectDays>
+  <BM_ProtectHint>While protected, lower priorities never take materials reserved for the top priority. Once the window expires, half of the reserve opens to lower priorities and the other half stays reserved. 0 = no protection.</BM_ProtectHint>
+  <BM_AgeDays>Wait aging: {0} day(s)</BM_AgeDays>
+  <BM_AgeHint>If an order gets no materials for this long, its scheduling rank is raised to just below the top priority so it passes everything else in the queue. The top priority itself is unaffected. 0 = aging off.</BM_AgeHint>
+  <BM_TabDiag>Diagnostics</BM_TabDiag>
+  <BM_DiagHint>This table answers "why is this order not moving?". Read-only: nothing you do here changes any scheduling decision.</BM_DiagHint>
+  <BM_DiagEmpty>No pending build orders.</BM_DiagEmpty>
+  <BM_DiagViewerLabel>View as:</BM_DiagViewerLabel>
+  <BM_DiagViewerAll>All (summary only)</BM_DiagViewerAll>
+  <BM_DiagViewerAllShort>All</BM_DiagViewerAllShort>
+  <BM_DiagBestFor>{0} should do: {1} (rank {2})</BM_DiagBestFor>
+  <BM_DiagBestNone>{0} has nothing buildable right now</BM_DiagBestNone>
+  <BM_DiagBestIncomplete>Scan incomplete (candidate cap reached), no conclusion this round</BM_DiagBestIncomplete>
+  <BM_DiagColGroup>Type group</BM_DiagColGroup>
+  <BM_DiagColRank>Rank</BM_DiagColRank>
+  <BM_DiagColState>State</BM_DiagColState>
+  <BM_DiagColReason>Reason</BM_DiagColReason>
+  <BM_DiagColWait>Waited</BM_DiagColWait>
+  <BM_Verdict_Unknown>Pending</BM_Verdict_Unknown>
+  <BM_Verdict_Granted>Granted</BM_Verdict_Granted>
+  <BM_Verdict_Waiting>Waiting</BM_Verdict_Waiting>
+  <BM_Verdict_Yielded>Yielded</BM_Verdict_Yielded>
+  <BM_Verdict_NoWorker>No worker</BM_Verdict_NoWorker>
+  <BM_Verdict_Forbidden>Forbidden</BM_Verdict_Forbidden>
+  <BM_DiagReasonShort>{0} short {1} (available {2})</BM_DiagReasonShort>
+  <BM_DiagPermanent>permanent</BM_DiagPermanent>
+  <BM_DiagTemporary>temporary</BM_DiagTemporary>
+  <BM_DiagReasonYield>yields to {0} (rank {1})</BM_DiagReasonYield>
+  <BM_DiagReasonNoWorker>no qualified builder</BM_DiagReasonNoWorker>
+  <BM_DiagReasonForbidden>build forbidden</BM_DiagReasonForbidden>
+  <BM_DiagIdleReason>Buildable — no one assigned right now</BM_DiagIdleReason>
+  <BM_DiagReasonPending>Not evaluated yet</BM_DiagReasonPending>
+  <BM_DiagReasonTaken>Someone already has it reserved</BM_DiagReasonTaken>
+  <BM_DiagReasonNoMaterial>No specific material recorded</BM_DiagReasonNoMaterial>
+  <BM_DiagReasonNone>No further detail</BM_DiagReasonNone>
+  <BM_CellNotCounted>n/a</BM_CellNotCounted>
+  <BM_CellNoShortage>none</BM_CellNoShortage>
+  <BM_CellNotCountedTip>Not counted for this group yet</BM_CellNotCountedTip>
+  <BM_CellNoShortageTip>No material shortage in this group</BM_CellNoShortageTip>
+  <BM_CellNoMaterialList>No material list</BM_CellNoMaterialList>
+  <BM_WindowHint>Permissions, level ranges and build order live on this tab:
+· the table lists unbuilt type groups; drag the ≡ handle to reorder;
+· click a row name to see its details and set its construction level range on the right;
+· lack, en-route and grant state are shown inline; see Diagnostics for details.
+
+The search box at the top right filters by name; the Diagnostics tab explains why an order is stuck.</BM_WindowHint>
+  <BM_ColGroup>Type group</BM_ColGroup>
+  <BM_ColLevel>Level</BM_ColLevel>
+  <BM_ColCount>Count</BM_ColCount>
+  <BM_LevelRangeText>{0}–{1}</BM_LevelRangeText>
+  <BM_LevelOpenHint1>Drag the two handles to set the allowed construction level for this type.</BM_LevelOpenHint1>
+  <BM_LevelOpenHint2>Click Close to go back to the summary.</BM_LevelOpenHint2>
+  <BM_SchedSettings>Settings</BM_SchedSettings>
+  <BM_SchedTitle>Schedule settings</BM_SchedTitle>
+  <BM_SchedHint>These settings are configured once and rarely touched, so they live here instead of the main pane.</BM_SchedHint>
+  <BM_SchedNoGame>No game in progress.</BM_SchedNoGame>
+  <BM_PermQualityShort>Qual.</BM_PermQualityShort>
+  <BM_PermPlainShort>Plain</BM_PermPlainShort>
+  <BM_DiagGroupSummary>{0} type groups · {1} orders (same type merged)</BM_DiagGroupSummary>
+  <BM_DiagColCount>Orders</BM_DiagColCount>
+  <BM_ColMaterial>Material</BM_ColMaterial>
+  <BM_ColNeeded>Needed</BM_ColNeeded>
+  <BM_ColLack>Lack</BM_ColLack>
+  <BM_ColEnroute>Transit</BM_ColEnroute>
+  <BM_ColWorkers>Workers</BM_ColWorkers>
+  <BM_WorkersTitle>Allowed workers</BM_WorkersTitle>
+  <BM_WorkersUnlimited>Any</BM_WorkersUnlimited>
+  <BM_WorkersN>{0}</BM_WorkersN>
+  <BM_WorkersBtn>Pick pawns</BM_WorkersBtn>
+  <BM_WorkersBtnTip>Only pawns on this list may finish this type; others can still deliver materials for ordinary blueprints.\nStacks with the level range: permission, level and this list must all pass.\nA "reinstall" blueprint is hauled and installed by the same job, so pawns off the list will not even haul it.\nCovers finishing buildings and reinstalling only; removing floors, removing foundations and smoothing walls ignore this list.</BM_WorkersBtnTip>
+  <BM_WorkersClear>Clear list</BM_WorkersClear>
+  <BM_WorkersClearTip>Clearing restores "Any": every permitted pawn within the level range may finish it.</BM_WorkersClearTip>
+  <BM_WorkersWho>Allowed workers: {0}</BM_WorkersWho>
+  <BM_WorkersOffList> ({0} more without construction enabled)</BM_WorkersOffList>
+  <BM_WorkersListedCan>{0} listed · {1} can build</BM_WorkersListedCan>
+  <BM_WorkersCanBuild>can build</BM_WorkersCanBuild>
+  <BM_WorkersLevelOut>level outside {0}~{1} (building only; installing ignores it)</BM_WorkersLevelOut>
+  <BM_WorkersNoPerm>no building permission for this</BM_WorkersNoPerm>
+  <BM_WorkersSkillDisabled>construction skill disabled</BM_WorkersSkillDisabled>
+  <BM_WorkersEmptyTip>No list set; anyone can do it.</BM_WorkersEmptyTip>
+  <BM_Close>Close</BM_Close>
+  <BM_PanePickHint>Click any row to see its details here.</BM_PanePickHint>
+  <BM_DiagColJudge>Judged by</BM_DiagColJudge>
+  <BM_DiagFormula>How the available amount is computed:</BM_DiagFormula>
+  <BM_DiagKvNeed>Required</BM_DiagKvNeed>
+  <BM_DiagKvStock>Total stock</BM_DiagKvStock>
+  <BM_DiagKvEnroute>En route in stock</BM_DiagKvEnroute>
+  <BM_DiagKvProtect>Top-rank reserve</BM_DiagKvProtect>
+  <BM_DiagKvAlloc>Already allocated</BM_DiagKvAlloc>
+  <BM_DiagKvAvail>Available left</BM_DiagKvAvail>
+  <BM_DiagKvKind>Shortage kind</BM_DiagKvKind>
+  <BM_DiagKvYieldTo>Yielded to</BM_DiagKvYieldTo>
+  <BM_Judge_Budget>Material budget</BM_Judge_Budget>
+  <BM_Judge_Gate>Yield gate</BM_Judge_Gate>
+  <BM_Judge_NoWorker>No-worker scan</BM_Judge_NoWorker>
+  <BM_Judge_Player>Player setting</BM_Judge_Player>
+  <RF_ActionMine>mining</RF_ActionMine>
+  <RF_ActionDeconstruct>deconstruction</RF_ActionDeconstruct>
+  <RF_BlockedThick>Blocked {0} of {1}: the thick roof above will collapse ({2} cells), and thick roof cannot be removed. Right-click to force {0} to ignore this.</RF_BlockedThick>
+  <RF_BlockedUnremovable>Blocked {0} of {1}: the roof above will collapse ({2} cells), and that roof cannot be removed. Right-click to force {0} to ignore this.</RF_BlockedUnremovable>
+  <RF_BlockedUnreachable>Blocked {0} of {1}: the roof above will collapse, but colonists cannot reach those roof cells ({2}). Open a path first, or right-click to force {0}.</RF_BlockedUnreachable>
+  <RF_PausedThick>Paused {0} of {1}: {2} roof cells are marked for removal, but thick roof above will still collapse and cannot be removed. After clearing the normal roof, right-click to force {0} if you want to continue.</RF_PausedThick>
+  <RF_PausedRoofFirst>Paused {0} of {1}: remove the {2} roof cells above first (already marked as a "remove roof" area); work will resume automatically afterwards. Cancel the {0} order if you do not want to remove the roof.</RF_PausedRoofFirst>
+  <RF_WarningMessage>Warning: removing {0} will cause a thick roof collapse ({1} cells); thick roof cannot be removed.</RF_WarningMessage>
+  <RF_AlertLabel>Thick roof will collapse</RF_AlertLabel>
+  <RF_AlertExplanation>Removing the following targets will leave the thick roof above unsupported and cause it to collapse; thick roof cannot be removed with "Remove roof".\n\nClick a target below to jump to its position.</RF_AlertExplanation>
+  <BM_RowHeight>Row height</BM_RowHeight>
+  <BM_RowHeightTip>Pixels, {0}-{1}, default {2}. Values outside the range are clamped; non-numeric or empty input keeps the current value. Only affects the type-group table on the Construction tab.</BM_RowHeightTip>
+
+  <BM_SortDefault>Default</BM_SortDefault>
+  <BM_SortAsc>Level ↑</BM_SortAsc>
+  <BM_SortDesc>Level ↓</BM_SortDesc>
+</LanguageData>

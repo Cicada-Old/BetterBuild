@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>BuildMonitor</defName>
+    <label>建造</label>
+    <description>建造权限、建造等级范围、未建造统计与材料调度、拆前先拆屋顶。</description>
+    <tabWindowClass>BuildMonitor.MainTabWindow_BuildMonitor</tabWindowClass>
+    <order>64.7</order>
+    <validWithoutMap>false</validWithoutMap>
+  </MainButtonDef>
+</Defs>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>更好的建造</name>
+  <author>Cicada</author>
+  <packageId>Cicada.BetterBuild</packageId>
+  <modVersion>1.0.0</modVersion>
+  <url>https://github.com/Cicada-Old/BetterBuild</url>
+  <supportedVersions>
+    <li>1.7</li>
+  </supportedVersions>
+  <description>建造侧的统一管理面板：
+· 建造权限：按小人分别允许「有品质 / 无品质」建筑的自动建造（手动命令不受限）
+· 建造等级范围：每种建造类型可设定建造等级区间（原版双滑块），只允许范围内的小人自动建造
+· 未建造统计：按种类合并列出蓝图/框架数量；拖动左侧 ≡ 调整顺序，建造优先按该顺序，高优先级缺料时会为它预留材料、低优先级不抢同类材料，条件不满足自动跳过；可跳转定位
+· 材料预算与调度诊断：材料按名次分配、久等订单自动提权、到期开放借用；「诊断」页逐单说明为什么不动（等料/让路/无人可做/禁建）
+· 建造页行高：在「调度设置」里按像素自定义类型组表格的行高
+· 品质建造修复：手动/自动拆除「已设品质」的建筑后，如果 QualityBuilder 没有重新放置蓝图，本 mod 兜底补放并继承品质要求
+· 拆前先拆屋顶：拆除会塌屋顶的承重建筑前先把普通屋顶清掉；厚岩顶直接拦下不拆，拆除任务取消后撤销屋顶标记（原「拆前先拆屋顶」并入）
+
+工作台优先级、未完成品他人接手、限定品质范围在「更好的制造」里。</description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>hatti.qualitybuilder</li>
+  </loadAfter>
+</ModMetaData>

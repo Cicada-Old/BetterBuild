@@ -1,0 +1,104 @@
+# ARCHIVE — 更好的建造（Better Build）1.0.0
+
+> 技术归档说明。对应发布前测试报告 `发布前测试报告-BB-20261106.md` 与版本冻结报告 `版本冻结报告-BB-20261105.md`。
+
+## 1. 项目与标识
+
+| 项 | 值 |
+|---|---|
+| 项目名 | 更好的建造 / Better Build |
+| `packageId` | `Cicada.BetterBuild` |
+| 发布版本 | `1.0.0`（`About/About.xml` 的 `<modVersion>`） |
+| 仓库 | `Cicada-Old/BetterBuild`（本阶段仅建本地仓库，不配远端、不推送） |
+| 许可证 | MIT，`Copyright (c) 2026 Cicada` |
+
+## 2. 支持的 RimWorld 版本
+
+`1.7.4977`（Waylith 引擎移植版）。
+
+## 3. 运行环境与构建环境
+
+| 项 | 值 |
+|---|---|
+| 操作系统 | Windows 10.0.26200 |
+| 运行时 | .NET 10 |
+| 实测环境 | 211 个已启用 mod、存档 `BB-protect-test.rws`、中文/英文各一轮、1920×1080 与 1400×860 / 1280×720 窗口化 |
+| 构建环境 | `dotnet` CLI（见第 4 项），无需 IDE |
+
+## 4. .NET / 编译器版本
+
+`dotnet --version` = **`10.0.301`**；目标框架 `net10.0`。
+
+## 5. 第三方依赖
+
+| 依赖 | 说明 |
+|---|---|
+| **Harmony**（`brrainz.harmony`） | 唯一运行时依赖。`About.xml` 用 `<modDependencies>` 声明（**1.7 没有 `<depends>` 字段**，写成 `depends` 会报 `doesn't correspond to any field in type ModMetaDataInternal`） |
+| `loadAfter` | `brrainz.harmony`、`hatti.qualitybuilder` |
+
+源码不内嵌第三方代码；构建引用见 `DEVELOPMENT.md`（`libs/` 不入库）。
+
+## 6. 源代码与构建产物位置
+
+| 项 | 路径 |
+|---|---|
+| 源码 | `Source/`（13 个 `.cs`，含由开发副本 `src/shared/` 并入的 `ResearchStyleTabWindow.cs`） |
+| 工程文件 | `BuildMonitor.csproj` |
+| 构建产物 | `bin/BuildMonitor.dll`（产物 md5 见下） |
+| 随包 DLL | `Assemblies/BuildMonitor.dll` |
+
+## 7. 构建方法与复现步骤
+
+1. 从游戏根目录与 Harmony mod 取四个 DLL 放进 `libs/`（`Assembly-CSharp.dll`、`RimWorld.dll`、`UnityStubs.dll`、`0Harmony.dll`，来源见 `DEVELOPMENT.md`）；
+2. `dotnet build BuildMonitor.csproj -c Release`；
+3. 校验 `bin/BuildMonitor.dll` 的 md5 = `80b5956514db783df6ddfd451b1fb366`；
+4. 复制为 mod 的 `Assemblies/BuildMonitor.dll`。
+
+## 8. 游戏内测试
+
+目标、环境、步骤与逐项结果见 **`发布前测试报告-BB-20261106.md` 第二十节「最终结论（阶段二收口）」**：A 类 10 项、B 类人工项、兼容性专轮、性能九批结论、问题汇总、发布结论（阻断项 0）。
+
+**验证范围必须一并读**：全套测试跑在被测件 `68ae0f54…` 上；换成 `80b59565…` 后只做了冒烟级验证（启动无错、ID 与中英文名、Harmony 生效、两页可用、3 组 24 单读数正常）。
+
+## 9. 已知问题与限制
+
+| 编号 | 内容 | 处置 |
+|---|---|---|
+| KI-001 | 「建造让路」明细日志累计 80 条后，同一游戏进程内不再输出、读档不复位；**不影响调度判定与界面显示** | 1.0.0 之后修；发布说明披露 |
+| KI-002 | 停用/卸载本 mod 后打开旧存档会刷 16 条组件报错、等级范围/名单/订单顺序显示默认值；**重新启用后数据恢复** | 不修；停用期间不要保存 |
+| KI-003 | 诊断页「让给 X（名次 N）」只保留 240 tick（约 4 秒），玩家几乎看不到；判定本身正常 | 1.0.0 之后修（延长保留或改显示「最近一次让路」） |
+
+## 10. 对应 Git 提交
+
+| 项 | 值 |
+|---|---|
+| 首次提交 | `b371151` |
+| 分支 | `main` |
+| 标签 | **未打**（`v1.0.0` 留阶段八，指向通过验收的冻结提交） |
+
+---
+
+## 附 A. 三个 md5（互不替代）
+
+| 对象 | md5 |
+|---|---|
+| `Assemblies/BuildMonitor.dll` | `80b5956514db783df6ddfd451b1fb366` |
+| 语言资源 `Languages/English/Keyed/BuildMonitor.xml` | `8cdb5b6e7f1858a8533416984f584479` |
+| 语言资源 `Languages/ChineseSimplified (简体中文)/Keyed/BuildMonitor.xml` | `cfa8c0baed375c33875f170685bfb72e` |
+| `About/About.xml` | `df6468fdf4043d1b9d329904eeb20517` |
+
+> 另有 `Languages/English/DefInjected/MainButtonDef/BuildMonitor.xml`（英文主按钮标题注入）与 `Defs/MainButtonDef.xml`，随副本原样归档。
+
+## 附 B. 产物变更史
+
+| 阶段 | DLL md5 | 验证强度 |
+|---|---|---|
+| 冻结候选（测试期） | `68ae0f5478dfe27836113448ec90d3e8` | 全套：A 类 10 项、B 类人工项、性能九批、兼容性专轮 |
+| 最终产物（本归档） | `80b5956514db783df6ddfd451b1fb366` | **仅冒烟**：启动无错、`packageId` 与中英文名、Harmony 生效、建造页/诊断页可用、3 组 24 单读数正常 |
+
+两者差异**只有** packageId 相关字符串 3 处（`BuildMonitor.cs`、`ModNameLocalization.cs`、`RoofFirst.cs` 各 1 处）+ `About/About.xml` + `ModsConfig.xml`，不涉及调度、界面与判定逻辑。
+
+## 附 C. md5 ↔ commit 对应
+
+- `80b59565…` = 首次提交 `b371151`。
+- 该 md5 只对应这一次提交；**后续任何提交都不得声称与该 md5 一致**——产物变了就要重新记录 md5 与 commit。

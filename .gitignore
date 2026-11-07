@@ -1,0 +1,6 @@
+libs/
+bin/
+obj/
+.vs/
+*.user
+*.log
