@@ -15,11 +15,11 @@
 | `UnityStubs.dll` | `<游戏安装目录>\`（同上） |
 | `0Harmony.dll` | `<Harmony mod 目录>\1.7\Assemblies\0Harmony.dll` |
 
-这样能编译、能运行，产物**功能等价**；但**字节与归档件 `80b5956514db783df6ddfd451b1fb366` 不同**（引用程序集的元数据不同会改变生成结果）。日常开发、调试用这一档即可。
+这样能编译，产物**功能等价**（此档未逐项实测，**仅验证能编译、未挂进游戏运行**）；但**字节与归档件 `80b5956514db783df6ddfd451b1fb366` 不同**（引用程序集的元数据不同会改变生成结果）。日常开发、调试用这一档即可。
 
 ### B. 要字节级复现归档件：用参考壳程序集
 
-必须用开发期工作区的 `refs\ref\net10.0\` 下那四份经过裁剪的参考壳（`Assembly-CSharp.dll` / `RimWorld.dll` / `UnityStubs.dll`）与 `harmony\x\lib\net10.0\0Harmony.dll`，**并保持现行 `BuildMonitor.csproj` 的编译顺序**（`ResearchStyleTabWindow.cs` 被 `Source\**\*.cs` 排除、单独 `Compile` 在末尾）。
+必须用与归档时同一套**裁剪参考壳**（`Assembly-CSharp.dll` / `RimWorld.dll` / `UnityStubs.dll`）与同套的 `0Harmony.dll`（开发期内部留存，不随仓库分发），**并保持现行 `BuildMonitor.csproj` 的编译顺序**（`ResearchStyleTabWindow.cs` 被 `Source\**\*.cs` 排除、单独 `Compile` 在末尾）。
 
 参考壳不随仓库分发；只有做「产物与归档件逐字节一致」的核对时才需要它。换行的差异不是原因——换引用的程序集才是。
 
@@ -42,7 +42,7 @@ dotnet build BuildMonitor.csproj -c Release
 
 | 目录 | 内容 |
 |---|---|
-| `Source/` | 全部 C# 源码，11 个文件（含 `ResearchStyleTabWindow.cs`，原开发副本里位于 `src/shared/`） |
+| `Source/` | 全部 C# 源码，11 个文件（含共享基类 `ResearchStyleTabWindow.cs`） |
 | `About/` | `About.xml`、`Preview.png` |
 | `Defs/` | Def 定义 |
 | `Languages/` | 中英文 Keyed 文案 + 英文 DefInjected |
