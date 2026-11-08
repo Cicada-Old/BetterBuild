@@ -12,7 +12,7 @@ namespace BuildMonitor
     /// 所以切到英文时，DefInjected/MainButtonDef 那条能让底部按钮变成 Build，Mod 列表却还是「更好的建造」。
     ///
     /// 只改显示：packageId 与 About.xml 都不动——存档、依赖、冲突识别全按 packageId 走，Name 只影响界面文字。
-    /// Description 是长文，翻译属内容工作，本轮不碰（WB v2.9.1 §二 要点 4）。
+    /// Description 是长文，翻译属内容工作，本轮不碰。
     /// </summary>
     [HarmonyPatch(typeof(ModMetaData), nameof(ModMetaData.Name), MethodType.Getter)]
     public static class Patch_ModName

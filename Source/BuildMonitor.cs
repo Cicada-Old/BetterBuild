@@ -734,7 +734,7 @@ namespace BuildMonitor
         /// T-076 起**不再参与让路判定**（判定只看名次，见 ShouldYield），只用于日志措辞与诊断分类：
         /// 区分「因为更高名次在抢同一种材料而让路」和「只是名次本身更高而让路」。
         /// 留着它还有个副作用要防：下面三条提前返回让完工与安装恒为「不冲突」，
-        /// 旧版把它当否决条件正是「名次第一却不优先」的根因（设计 §1.2），别再把它接回判定里。
+        /// 旧版把它当否决条件正是「名次第一却不优先」的根因，别再把它接回判定里。
         /// </summary>
         private static bool MaterialConflict(BestAction best, Thing target)
         {
@@ -830,7 +830,7 @@ namespace BuildMonitor
     }
 
     /// <summary>
-    /// 旧档兼容墓碑：工作台优先级在 v2.0.0 拆到了「更好的制造」（BuildCraft 命名空间），
+    /// 旧档兼容墓碑：工作台优先级已拆到姊妹模组「更好的制造」，
     /// 旧档里仍是本类型名。留一个空组件把数据读掉即弃，避免读档报「找不到类型」。
     /// 待「旧档 + 新 mod」实测确认原版是静默跳过后再删掉。
     /// </summary>
@@ -881,12 +881,12 @@ namespace BuildMonitor
         /// 安装/重新安装蓝图：搬运与安装是同一个 HaulToContainer job（原版 InstallJob 里
         /// targetA=家具本体、targetB=安装蓝图），没有独立的完工出口，所以「谁去装」只能在这一层一次判完。
         /// 这里拦白名单的含义与普通蓝图不同：名单外的人连这件家具都不会去搬——这是想要的行为，
-        /// 否则他把家具搬到工地却装不了，反而把蓝图卡死（设计 §2.4，勿当 bug 改回去）。
+        /// 否则他把家具搬到工地却装不了，反而把蓝图卡死（勿当 bug 改回去）。
         /// 普通蓝图的「HasJobOnThing=只送料」仍走 ShouldBlock，不查等级与白名单。
         /// **不查等级范围**（T-071）：原版给安装蓝图生成 def 时只在「不是安装蓝图」的分支里才继承
         /// constructionSkillPrerequisite（ThingDefGenerator_Buildings.cs L103-108），安装蓝图这个字段恒为默认 0，
         /// 而原版判定只比它（GenConstruct.CanConstruct L291-296）→ 任何等级（含 0 级）都满足。
-        /// 安装属于搬运，不是建造；这里再加等级就是把原版没有的门槛自己造出来（用户实测现象的根因）。
+        /// 安装属于搬运，不是建造；这里再加等级就是把原版没有的门槛自己造出来（实测现象的根因）。
         /// </summary>
         public static bool ShouldBlockInstall(Pawn pawn, Thing t, bool forced)
         {
@@ -907,7 +907,7 @@ namespace BuildMonitor
         /// <summary>
         /// 只在「判定结果发生变化」时记一条，避免刷屏。
         /// checkRange=false 用于安装蓝图：那条路径根本不查等级（T-071），
-        /// 若这里照旧读等级范围，就会打出「范围=19~20 等级=8 允许」这种自相矛盾、事后误导排查的日志（设计 §1.2②）。
+        /// 若这里照旧读等级范围，就会打出「范围=19~20 等级=8 允许」这种自相矛盾、事后误导排查的日志。
         /// </summary>
         private static void LogGate(Pawn pawn, Thing t, bool allowed, bool checkRange)
         {

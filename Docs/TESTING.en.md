@@ -10,7 +10,7 @@ What was tested before 1.0.0, what the results were, and **what was not covered*
 |---|---|
 | Game | RimWorld 1.7 (64-bit, Windows) |
 | Mod count | 211 enabled mods in the existing list |
-| Test save | Purpose-built extreme save: material protection shortened to **half a game day** (half the default), 25 people with building enabled, many outstanding orders |
+| Test save | Purpose-built extreme save: material protection shortened to **half a game day** (half the default), 25 people with building enabled (from the test record), many outstanding orders |
 | Resolution | 1920×1080 fullscreen, plus 1400×860 and 1280×720 windowed |
 | UI language | One pass in Chinese, one in English |
 | Prerequisite | Harmony |

@@ -10,5 +10,5 @@ obj/
 *.rws.bak
 # 工具与脚本
 *.ps1
-# Agent 工作目录
+# 本地工具目录
 .workbuddy/

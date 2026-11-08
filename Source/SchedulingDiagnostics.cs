@@ -168,7 +168,7 @@ namespace BuildMonitor
         }
 
         /// <summary>
-        /// 放行时补一条显示细节：这张单当前有没有执行者（原版预约状态，T-076 设计 §3）。
+        /// 放行时补一条显示细节：这张单当前有没有执行者（原版预约状态，T-076）。
         /// 只补措辞、不改结论：等料/让路/禁建/无人可做都是更靠前的原因，一律不覆盖；
         /// 也没被任何判定读过的条目不凭空建（预算还没扫到它时，界面本来就不显示结论）。
         /// </summary>
@@ -202,7 +202,7 @@ namespace BuildMonitor
             {
                 Thing t = info.Thing;
                 if (t == null || t.Destroyed || !t.Spawned) continue;
-                // 安装蓝图参与抽样（CR-161 裁定 A）：它没有材料清单，但 T-067 之后要过 ShouldBlockInstall
+                // 安装蓝图参与抽样（CR-161）：它没有材料清单，但 T-067 之后要过 ShouldBlockInstall
                 // （权限 + 白名单，**不查等级**，T-071），与普通蓝图同一把键（TypeKey 走 EntityOf → 建筑 def）。
                 // 原先的 `if (t is Blueprint_Install) continue;` 是「怕 TotalMaterialCost 刷 Error」留下的，
                 // 而抽样循环根本不读材料，那个理由已不成立；留着会让「只剩安装蓝图」的组漏报无人可做。

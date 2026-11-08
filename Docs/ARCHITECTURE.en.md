@@ -73,7 +73,7 @@ Patches fall into three groups: **16 static patches + 1 prefix + one dynamic cla
 
 ## 4. Data and saves
 
-**Persisted (six groups, all `GameComponent`)**
+**Persisted (6 categories, 7 rows, all `GameComponent`)**
 
 | Data | Scribe key |
 |---|---|

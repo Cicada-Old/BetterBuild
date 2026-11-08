@@ -36,7 +36,7 @@
 | **Harmony**（`brrainz.harmony`） | 唯一运行时依赖。`About.xml` 用 `<modDependencies>` 声明（**1.7 没有 `<depends>` 字段**，写成 `depends` 会报 `doesn't correspond to any field in type ModMetaDataInternal`） |
 | `loadAfter` | `brrainz.harmony`、`hatti.qualitybuilder` |
 
-源码不内嵌第三方代码；构建引用见 `DEVELOPMENT.md`（`libs/` 不入库）。
+以上都是引用关系：上表为运行期依赖与加载顺序声明，四份构建期程序集见 `DEVELOPMENT.md` 第 1 节（`libs/` 不入库）。
 
 ## 6. 源代码与构建产物位置
 
@@ -76,7 +76,7 @@
 
 > 归档阶段的那次「副本作为 mod 加载」是**一次性人工检查，无独立日志留存**（当时原部署件临时移出 `Mods`、副本挂载、启动验证后还原）。旁证：部署件已还原且 md5 相符、副本 `About.xml` 与部署件同 md5、副本重建产物与归档件一致。
 
-> 内部测试报告与版本冻结报告**不随仓库分发**（含内部路径与研判细节）；面向公众的测试与已知问题说明在阶段四的 `TESTING.md` / `KNOWN_ISSUES.md`。
+> 内部测试报告与版本冻结报告**不随仓库分发**（含内部路径与研判细节）；面向公众的测试与已知问题说明在 `Docs/TESTING.md` / `Docs/KNOWN_ISSUES.md`。
 
 ## 9. 已知问题与限制
 
@@ -93,7 +93,7 @@
 | 归档主体 / 首次提交 | `a50e391`（代码、产物、文档；该提交内本文档的 hash 字段仍是占位符） |
 | 说明性修订 | `007cb36` → `93c1b0c` → `012459b` → `e735647`：只改本文档（hash 回填、附 D/E、措辞），不含代码与产物变更 |
 | **阶段四文档与截图** | **`bd71aa8`**：`README` / `CHANGELOG` / `DEVELOPMENT` 中英版、`Docs/` 下 5 对文档 + 8 张截图，共 **25 个文件**（23 新增 + 2 修改）；不含代码与产物变更 |
-| **阶段六 P2 修订** | **`158f5e2`**：6 处注释去掉设计文件名 / 临时目录路径 / 「用户 + 时刻」，`.gitignore` 补 `*.rws`、`*.rws.bak`、`*.ps1`、`.workbuddy/`，§3 与 README 截图说明各一处；**产物未变**（Source 仍 5809 行，重建仍得 `80b59565…`） |
+| **阶段六 P2 修订** | **`158f5e2`**：源码注释去掉内部引用，`.gitignore` 补 `*.rws`、`*.rws.bak`、`*.ps1`、`.workbuddy/`，§3 与 README 截图说明各一处；**产物未变**（Source 仍 5809 行，重建仍得 `80b59565…`） |
 | 本文档的后续修订 | 只改本文件的措辞与 hash 回填——**最新值以 `git log -- ARCHIVE.md` 为准**，不在本文内写死 HEAD |
 | 分支 | `main` |
 | 标签 | **未打**（`v1.0.0` 留阶段八，指向通过验收的冻结提交） |
@@ -107,7 +107,7 @@
 | `Assemblies/BuildMonitor.dll` | `80b5956514db783df6ddfd451b1fb366` |
 | 语言资源 `Languages/English/Keyed/BuildMonitor.xml` | `8cdb5b6e7f1858a8533416984f584479` |
 | 语言资源 `Languages/ChineseSimplified (简体中文)/Keyed/BuildMonitor.xml` | `cfa8c0baed375c33875f170685bfb72e` |
-| `About/About.xml` | `df6468fdf4043d1b9d329904eeb20517` |
+| `About/About.xml` | `ea315a738402a28a4b9e027351eb54b2` |
 
 > 另有 `Languages/English/DefInjected/MainButtonDef/BuildMonitor.xml`（英文主按钮标题注入）与 `Defs/MainButtonDef.xml`，随副本原样归档。
 >

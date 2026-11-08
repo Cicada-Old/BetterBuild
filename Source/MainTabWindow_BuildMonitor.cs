@@ -10,7 +10,7 @@ namespace BuildMonitor
     /// <summary>
     /// 「建造」一级页签，外观与交互沿用原版「研究」菜单：
     /// 底部页签切换「建造」「诊断」，右上角搜索框按名称筛选。
-    /// v2.0.0 起工作台优先级拆到「更好的制造」（BuildCraft），本窗口只剩建造侧。
+    /// 工作台优先级已拆到姊妹模组「更好的制造」，本窗口只剩建造侧。
     /// </summary>
     public class MainTabWindow_BuildMonitor : ResearchStyleTabWindow
     {
@@ -138,7 +138,7 @@ namespace BuildMonitor
         private static bool NarrowMode(Rect content, float rowH)
         {
             // 最小表宽的语义是「**扣掉滚动条之后**仍能排开」，所以阈值要把 AdjustRectsForScrollView 扣掉的
-            // 那 20px 算进去；否则表宽正好等于阈值时材料列会拿到 < WMatMin，设计里的下界就成了假承诺（CR-163）
+            // 那 20px 算进去；否则表宽正好等于阈值时材料列会拿到 < WMatMin，下界就成了假承诺（CR-163）
             return content.width < Mathf.Max(BuildTableMinW(rowH), DiagTableMinW(rowH)) + ScrollBarW + PaneGap + RightPaneW;
         }
 
@@ -596,7 +596,7 @@ namespace BuildMonitor
         /// <summary>建造小人列表的排序：0=名字升序（默认）、1=建造等级升序、2=等级降序。</summary>
         private static int colonistSort;
 
-        // T-074（设计 v2.7.15 §三）：右区白名单网格的排序与左区各自独立。两个网格画的是同一个 pawns 列表，
+        // T-074：右区白名单网格的排序与左区各自独立。两个网格画的是同一个 pawns 列表，
         // 右区若直接调 SortPawns() 会把左区的顺序一起排掉，所以右区只切 workerSort，绘制前复制一份再排。
         private static int workerSort;
         private readonly List<Pawn> rightSortBuf = new List<Pawn>();
@@ -815,7 +815,7 @@ namespace BuildMonitor
             GameFont dataFont = FontForRowHeight(rowH);
 
             // 表头固定 Small + 24px 带：表头是结构标签不是数据，列宽也是按 Small 表头定的。
-            // 跟着行高换 Medium 会竖着越出 24 的带（Medium 行高 29）、横向压到相邻列（设计 §7.2）
+            // 跟着行高换 Medium 会竖着越出 24 的带（Medium 行高 29）、横向压到相邻列
             Text.Font = GameFont.Small;
             float headTextH = Text.LineHeight;
             float headY = Mathf.Max(0f, 24f - headTextH);     // 在 24 的带里垂直居中
@@ -960,7 +960,7 @@ namespace BuildMonitor
                     Widgets.Label(new Rect(xJump, textY, WJump, textH), "BM_TooMany".Translate());
                     Text.Anchor = TextAnchor.UpperLeft;
                     GUI.color = Color.white;
-                    // 矩形只盖「过多」这一列（T-080 裁定 A）：原版把每条 tooltip 按文案 hash 收进 activeTips、
+                    // 矩形只盖「过多」这一列（T-080）：原版把每条 tooltip 按文案 hash 收进 activeTips、
                     // DrawActiveTips 全部叠着画，用整行 row 会让这一行每个格子都多弹一条，挤掉格子自己的说明
                     TooltipHandler.TipRegion(new Rect(xJump, textY, WJump, textH), "BM_TooManyTip".Translate());
                 }
@@ -1144,7 +1144,7 @@ namespace BuildMonitor
                 : new Rect(inner.x + wBtnW + 6f, y + 6f, inner.width - wBtnW - 6f, 16f);
             Text.Anchor = TextAnchor.UpperRight;
             Text.Font = GameFont.Tiny;
-            // 名单非空却一个人都做不了 → 警示色，让「设了名单没人能建」一眼可见（设计 §4.1）
+            // 名单非空却一个人都做不了 → 警示色，让「设了名单没人能建」一眼可见
             GUI.color = workerCount > 0
                 ? (canBuild > 0 ? new Color(0.7f, 0.9f, 0.75f) : new Color(0.95f, 0.6f, 0.6f))
                 : new Color(0.5f, 0.55f, 0.6f);
@@ -1153,7 +1153,7 @@ namespace BuildMonitor
             GUI.color = Color.white;
             Text.Anchor = TextAnchor.UpperLeft;
             TooltipHandler.TipRegion(new Rect(inner.x, y, wBtnW, 24f), "BM_WorkersBtnTip".Translate());
-            // 状态区单独挂 tooltip：逐个名单内小人说明「可建造」或被哪一层拦下（设计 §4.2）
+            // 状态区单独挂 tooltip：逐个名单内小人说明「可建造」或被哪一层拦下
             TooltipHandler.TipRegion(workersStateRect, workerCount > 0
                 ? (workersStatusTip ?? "BM_None".Translate().ToString())
                 : "BM_WorkersEmptyTip".Translate().ToString());

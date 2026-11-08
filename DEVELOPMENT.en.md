@@ -1,10 +1,10 @@
 # Development (build prerequisites)
 
-> This file covers **how to build** only. Features, architecture, testing and contribution notes live in the phase-4 documents.
+> This file covers **how to build** only. Features, architecture, testing and contribution notes live in the documents under `Docs/`.
 
 ## 1. Reference assemblies (`libs/`, not tracked)
 
-The build needs four DLLs placed in `libs/` at the repository root (that directory is excluded by `.gitignore`). **There are two modes — pick one depending on what you need.**
+The build needs four DLLs placed in `libs/` at the repository root (that directory is excluded by `.gitignore`). `0Harmony.dll` is MIT-licensed; the other three come from the game's install directory (RimWorld / Unity). All four are compile-time references only. **There are two modes — pick one depending on what you need.**
 
 ### A. Regular development: use the game's own assemblies
 

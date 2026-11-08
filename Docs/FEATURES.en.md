@@ -39,7 +39,7 @@ Purpose: keep low-skill colonists on plain walls and floors, so they do not turn
 - Each material first covers the remaining need of the **highest-ranked type**; whatever is left is allocated to lower-ranked orders by (rank, order) order.
 - **An order is released only when it receives quotas for all of its materials.** Missing one means waiting.
 - Inside the highest-ranked group, orders **compete freely** and each takes materials as it needs.
-- **Material protection period**: materials held by the highest rank stay protected for a while (default 1 game day, adjustable 0~30), after which **half** opens up for lower ranks to borrow. Set to `0` = half is always open.
+- **Material protection period**: materials held by the highest rank stay protected for a while (default 1 game day, adjustable 0~30), after which **half** opens up for lower ranks to borrow. Set to `0` = **no protection at all**: lower ranks borrow directly in rank order instead of waiting for a window to expire — that is not the same thing as "half open after expiry".
 - The budget is a soft constraint: it does not reserve game jobs or deduct stock, it only decides whether a hauling job is generated.
 - Changing the protection period takes effect **within 15 ticks (about 0.25 s at 1× speed)**, not instantly.
 

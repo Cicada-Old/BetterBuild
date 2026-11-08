@@ -43,7 +43,7 @@ This mod adds a panel on the construction side and makes those decisions explici
 ## Quick start
 
 1. Open the **Build** entry from the main bar; each building type takes one row.
-2. Click the level hint on a row and drag the two slider handles to set the allowed construction level range.
+2. Click the level hint on a row and drag the two-handle range bar to set the allowed construction level range.
 3. To limit who may build, expand the builder list on the right and tick names; the status line shows `N listed · M can build`.
 4. When an order is not moving, switch to **Diagnostics** and read the reason column: waiting for materials, yielded, or nobody available.
 
