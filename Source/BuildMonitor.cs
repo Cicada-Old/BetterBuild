@@ -576,7 +576,7 @@ namespace BuildMonitor
             // 名次优先：best 已经是「这个小人现在真能做的最高名次单」，只要它比目标名次高就先做它。
             // 材料冲突不再当否决条件：旧写法 `&& MaterialConflict(...)` 会让「完工」（不消耗新材料）
             // 与「重新安装」（没有材料清单）这两种情形恒得 false → 永不让路，名次第一也压不住低名次的单
-            // （设计 DESIGN-buildmonitor-yield-by-rank.md §1.2/§2，T-076）。
+            // （让路只按名次判定，与材料冲突无关；T-076）。
             bool yield = best.Rank < targetRank;
             if (yield)
             {

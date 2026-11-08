@@ -19,7 +19,7 @@ namespace BuildMonitor
     /// <summary>
     /// 每种建造类型「允许执行的小人」白名单——在建造权限、等级范围之外的第三层过滤。
     /// 名单为空 = 不限制（回退到「权限 AND 等级」）；非空 = 只有名单内的小人能完工。
-    /// 只拦完工、不拦送料，与等级范围的口径保持一致（见 DESIGN-buildmonitor-ui-font-icon-workers §2.3）。
+    /// 只拦完工、不拦送料，与等级范围的口径保持一致。
     /// </summary>
     public class BuildWorkerComp : GameComponent
     {

@@ -57,6 +57,8 @@
 |---|---|
 | ![等级范围](Docs/images/zh/03_levels_zh.png) | ![执行名单](Docs/images/zh/04_whitelist_zh.png) |
 
+> 以上均为实机画面。截图所在环境启用了 211 个模组，界面中可能包含其它模组的元素。
+
 ## 已知限制
 
 完整清单见 [已知问题](Docs/KNOWN_ISSUES.md)。三条要点：

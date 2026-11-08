@@ -57,6 +57,8 @@ This mod adds a panel on the construction side and makes those decisions explici
 |---|---|
 | ![Level range](Docs/images/en/03_levels_en.png) | ![Builder list](Docs/images/en/04_whitelist_en.png) |
 
+> All screenshots are from a live game. The environment shown had 211 mods enabled, so UI elements from other mods may appear.
+
 ## Known limitations
 
 See [Known issues](Docs/KNOWN_ISSUES.en.md). Three points:

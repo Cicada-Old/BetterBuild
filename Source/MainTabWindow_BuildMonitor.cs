@@ -50,7 +50,7 @@ namespace BuildMonitor
         private const float NameMinW = 160f;
         private const float WLevel = 70f, WCount = 42f;
         // 缺料 / 在途 两列要容纳「不缺 / 未计」这类两字短词：Medium 字体实测「不缺」「未计」各 42px、英文 none 48px，
-        // 44 / 48 只剩 2px 甚至贴边，所以各加宽 8px（T-079，实测数据见 tmp/t079_verify_20261105/）。
+        // 44 / 48 只剩 2px 甚至贴边，所以各加宽 8px（T-079）。
         // 材料列没有目标宽度，这 16px 从它身上扣；表宽下限 BuildTableMinW 会自动 +16（窄屏早折行 16px，可接受）。
         private const float WLack = 52f, WEnroute = 56f, WJump = 74f;  // WJump 要装得下英文「Too many」，且 Medium 档「Jump」不贴边（T-070）
         private const float WWorkers = 72f;   // 「允许执行」列：要么「不限」要么「N 人」
@@ -790,7 +790,7 @@ namespace BuildMonitor
             Widgets.AdjustRectsForScrollView(split.table, ref scrollOut, ref viewRect);
             float tableW = viewRect.width;
 
-            // 列顺序（用户 2026-11-04 16:53 定稿）：类型组 | 材料 | 等级范围 | 允许执行 | 数量 | 缺料 | 在途 | 跳转
+            // 列顺序（定稿）：类型组 | 材料 | 等级范围 | 允许执行 | 数量 | 缺料 | 在途 | 跳转
             // 定值列从右往左排，材料列吃「表宽 − 其它列」的全部剩余：宽屏多出来的宽度只进材料列
             float xJump = tableW - WJump - JumpRightPad;
             float xEnroute = xJump - WEnroute - ColGap;
@@ -2006,7 +2006,7 @@ namespace BuildMonitor
 
         private static string ReasonText(OrderVerdict v)
         {
-            // 原因列不留「—」：每一格都要能读出一句话（用户 2026-11-05 10:36 定，T-077）
+            // 原因列不留「—」：每一格都要能读出一句话（T-077）
             if (v == null) return "BM_DiagReasonPending".Translate().ToString();
             switch (v.code)
             {

@@ -7,7 +7,7 @@ namespace BuildMonitor
     /// <summary>
     /// 英文界面下 Mod 列表里的本 mod 名字（T-083）。
     ///
-    /// 为什么要打补丁：About.xml 的 name 只在 ModMetaData.Init() 里读一次（`tmp/core/Verse/ModMetaData.cs:616`），
+    /// 为什么要打补丁：原版 `Verse.ModMetaData.Init()` 只读一次 About.xml 的 `name`，
     /// Name 属性直接返回那个值（同文件 L432-443）；RimWorld 没有 About 的语言层，DefInjected 只作用于 Def，管不到它。
     /// 所以切到英文时，DefInjected/MainButtonDef 那条能让底部按钮变成 Build，Mod 列表却还是「更好的建造」。
     ///

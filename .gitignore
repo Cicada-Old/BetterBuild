@@ -4,3 +4,11 @@ obj/
 .vs/
 *.user
 *.log
+
+# 存档（含基线档与测试档）
+*.rws
+*.rws.bak
+# 工具与脚本
+*.ps1
+# Agent 工作目录
+.workbuddy/
