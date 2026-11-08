@@ -94,6 +94,7 @@
 | 说明性修订 | `007cb36` → `93c1b0c` → `012459b` → `e735647`：只改本文档（hash 回填、附 D/E、措辞），不含代码与产物变更 |
 | **阶段四文档与截图** | **`bd71aa8`**：`README` / `CHANGELOG` / `DEVELOPMENT` 中英版、`Docs/` 下 5 对文档 + 8 张截图，共 **25 个文件**（23 新增 + 2 修改）；不含代码与产物变更 |
 | **阶段六 P2 修订** | **`158f5e2`**：源码注释去掉内部引用，`.gitignore` 补 `*.rws`、`*.rws.bak`、`*.ps1`、`.workbuddy/`，§3 与 README 截图说明各一处；**产物未变**（Source 仍 5809 行，重建仍得 `80b59565…`） |
+| **阶段六 P3 修订（文档 + 注释）** | **`843b5b8`**：`FEATURES` 改正「保护期设为 0」的语义、`ARCHITECTURE` §4 改「6 类 7 行」、`TESTING` 标注记录来源、`README` / `DEVELOPMENT` / `ARCHIVE` 的术语与许可表述修正、源码注释去掉设计章节号与内部版本号、`.gitignore` 注释改中性，共 **19 个文件**；**DLL 未变**（`80b59565…`，Source 仍 5809 行）。`About.xml` 的简介随后仍有修订，**当前值见附 A** |
 | 本文档的后续修订 | 只改本文件的措辞与 hash 回填——**最新值以 `git log -- ARCHIVE.md` 为准**，不在本文内写死 HEAD |
 | 分支 | `main` |
 | 标签 | **未打**（`v1.0.0` 留阶段八，指向通过验收的冻结提交） |
@@ -107,7 +108,7 @@
 | `Assemblies/BuildMonitor.dll` | `80b5956514db783df6ddfd451b1fb366` |
 | 语言资源 `Languages/English/Keyed/BuildMonitor.xml` | `8cdb5b6e7f1858a8533416984f584479` |
 | 语言资源 `Languages/ChineseSimplified (简体中文)/Keyed/BuildMonitor.xml` | `cfa8c0baed375c33875f170685bfb72e` |
-| `About/About.xml` | `ea315a738402a28a4b9e027351eb54b2` |
+| `About/About.xml` | `5f94ee4f237baa6338a59dc6e3400f54` |
 
 > 另有 `Languages/English/DefInjected/MainButtonDef/BuildMonitor.xml`（英文主按钮标题注入）与 `Defs/MainButtonDef.xml`，随副本原样归档。
 >
