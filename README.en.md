@@ -18,7 +18,7 @@ This mod adds a panel on the construction side and makes those decisions explici
 - **Material budget and scheduling diagnostics**: materials are allocated by rank, long-waiting orders are promoted over time, borrowing opens after the protection period. The Diagnostics tab states, per order, one of five verdicts: granted, waiting for materials, yielding, nobody available, or building disabled.
 - **Search**: a search box at the top right filters both tabs by name; the colonist lists in the left pane and the builder list can each be sorted (name by default, level ascending or descending), independently.
 - **Row height**: adjust the type table row height in pixels from the scheduling dialog.
-- **Quality build fix**: if QualityBuilder fails to re-place a blueprint after a quality-set building is deconstructed, this mod places it and carries the quality requirement over.
+- **QualityBuilder fix**: when QualityBuilder fails to put the blueprint back after a quality-set building is deconstructed, this mod places it and carries the quality requirement over.
 - **Roof-first deconstruction**: before deconstructing a load-bearing building that would collapse a roof, ordinary roofs are removed first; overhead mountain is refused, and roof markers are restored if the job is cancelled.
 
 ## Requirements
@@ -27,7 +27,7 @@ This mod adds a panel on the construction side and makes those decisions explici
 |---|---|
 | Game version | RimWorld **1.7** |
 | Required | **Harmony** (`brrainz.harmony`), from the Workshop or GitHub |
-| Recommended | QualityBuilder (the quality build fix cooperates with it; not required) |
+| Patched mod | QualityBuilder (`hatti.qualitybuilder`) — this mod ships a corrective patch for its deconstruct-and-rebuild behaviour |
 | Incompatible | None found. Tested in-game against an existing 211-mod list with no errors from this mod |
 
 ## Installation

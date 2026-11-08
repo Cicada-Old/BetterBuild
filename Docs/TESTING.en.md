@@ -79,7 +79,7 @@ What was tested before 1.0.0, what the results were, and **what was not covered*
 - Loaded with the existing 211-mod list: `missingMods` empty, no load failures attributable to this mod.
 - Startup log had 8,804 lines; the 3 ERROR lines all come from third-party mods. Lines mentioning this mod's name or log prefix numbered 7, with **0** exceptions.
 - Both tabs open and read correctly in that setup.
-- There is a **cooperative relationship** with QualityBuilder (the quality rebuild fix uses its data); without it, the rest of the mod still works.
+- This mod ships a **corrective patch** for QualityBuilder's deconstruct-and-rebuild logic (it only triggers when QualityBuilder is installed).
 
 ## 6. Reproducing it yourself
 

@@ -88,7 +88,7 @@ Notes:
 - **Overhead mountain is refused outright**.
 - If the deconstruction job is cancelled, previously placed roof markers are reverted, leaving nothing behind.
 
-## 11. Working with QualityBuilder
+## 11. Corrective patch for QualityBuilder
 
 - After a quality-set building is deconstructed (manually or automatically), if QualityBuilder does not re-place the blueprint, this mod **places it and carries the quality requirement over**.
-- This is a compatibility behaviour: with QualityBuilder installed, it re-places first and this mod fills in when it does not.
+- This is a corrective patch for QualityBuilder: when it fails to re-place the blueprint, this mod places it and carries the quality requirement over.
